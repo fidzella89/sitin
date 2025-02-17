@@ -1,0 +1,1 @@
+You can also run npm install with --force or --legacy-peer-deps if there are dependency conflicts.
