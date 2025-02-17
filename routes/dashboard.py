@@ -10,6 +10,17 @@ def get_student_count():
     conn.close()
     return {"count": count}
 
+@router.get("/months")
+def get_months():
+    conn = get_db_connection()
+    months = conn.execute("""
+        SELECT DISTINCT strftime('%Y-%m', session_start) as month
+        FROM student_sessions_time
+        ORDER BY month ASC;
+    """).fetchall()
+    conn.close()
+    return [m[0] for m in months]
+
 @router.get("/sessions/completed")
 def get_completed_sessions(month: str):
     conn = get_db_connection()
