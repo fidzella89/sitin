@@ -1,0 +1,4 @@
+Frontend: npm start
+
+Backend:
+uvicorn main:app --reload
